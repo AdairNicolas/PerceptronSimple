@@ -8,14 +8,14 @@
 
 float weights[NUM_INPUTS];
 float bias;
-int training_data[][NUM_INPUTS + 1] = {
+int training_data[][NUM_INPUTS + 1] = {//Inicializamos nuestros datos de entrenamiento y objetivo
     {0, 0, 0},
     {0, 1, 0},
     {1, 0, 0},
     {1, 1, 1}
 };
 
-float dot_product(float inputs[], float weights[], float bias) {
+float dot_product(float inputs[], float weights[], float bias) {//Realizamos las operaciones para nuestra función de activación
     float result = bias;
     for (int i = 0; i < NUM_INPUTS; i++) {
         result += inputs[i] * weights[i];
@@ -23,11 +23,11 @@ float dot_product(float inputs[], float weights[], float bias) {
     return result;
 }
 
-int activation(float input) {
+int activation(float input) {//Función de activación
     return input >= -0.000001 ? 1 : 0;
 }
 
-void train_with_delta() {
+void train_with_delta() {//Evaluación de datos para obtener errores
         for (int i = 0; i < 4; i++) {
             float inputs[NUM_INPUTS];
             for (int j = 0; j < NUM_INPUTS; j++) {
@@ -49,9 +49,9 @@ void train_with_delta() {
     }
 
 
-int main() {
+int main() {//función principal
 
-    float inputs[][NUM_INPUTS] = {
+    float inputs[][NUM_INPUTS] = {//Datos de prueba final
       {0, 0},
       {0, 1},
       {1, 0},
